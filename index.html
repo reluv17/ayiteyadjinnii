@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alva Ayitey-Adjin | Data & Business Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px 40px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .hero-text .highlight {
+            color: #2563eb;
+            position: relative;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stats-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #6b7280;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            color: #4b5563;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            background: #f0f9ff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #2563eb;
+            border: 2px solid #bfdbfe;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            border-color: #2563eb;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 120px 40px;
+            background: #f9fafb;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+            border-color: #2563eb;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .project-desc {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #f0f9ff;
+            color: #2563eb;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            padding: 100px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: #2563eb;
+        }
+
+        .cta-section .btn:hover {
+            background: #f0f9ff;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #9ca3af;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #2563eb;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .skills-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">AA</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="professional.html">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Turning Data Into <span class="highlight">Decisions</span></h1>
+                <p>Data & Business Analyst specializing in machine learning, NLP, and strategic analytics. MPS Analytics @ Northeastern University.</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="professional.html" class="btn btn-secondary">My Experience</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="stats-card">
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Data Projects<br>Highlighted</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Months<br>Co-op</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Business and Data Analyst with expertise in transforming complex data into actionable insights that drive business growth. With a background spanning financial technology and entrepreneurship, I've contributed to business development and analytics initiatives at Emergent Payments, Mojo Payments, and as a Business Wizard Co-op on the Entrepreneurship Team at Northeastern University's Roux Institute.</p>
+                    <p>Originally from Accra, Ghana, I hold a BA in English and Political Science and an MSc in Development Finance from the University of Ghana. I'm currently pursuing an MPS in Analytics at Northeastern University's Roux Institute. Based in Portland, Maine, I combine analytical rigor with community engagement, having volunteered my data skills with organizations like the Maine Locker Project.</p>
+                    <p>My work is guided by a commitment to lifelong learning, innovation, and leveraging data to solve real-world problems.</p>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">R</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">NLP</div>
+                    <div class="skill-item">Power BI</div>
+                    <div class="skill-item">Snowflake</div>
+                    <div class="skill-item">Clustering</div>
+                    <div class="skill-item">Time Series</div>
+                    <div class="skill-item">Optimization</div>
+                    <div class="skill-item">Geospatial</div>
+                    <div class="skill-item">Financial Modeling</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Restoration Medicine -->
+                <div class="project-card" onclick="location.href='professional.html#restoration'">
+                    <div class="project-image">🏥</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Restoration Medicine Analytics</h3>
+                        <p class="project-desc">Analyzed 176K patient records revealing 93.3% treatment gap in pelvic health care, designed CPT coding guidelines for Medicare optimization.</p>
+                        <div class="project-tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">EDA</span>
+                            <span class="tag">Patient Journey</span>
+                        </div>
+                        <a href="professional.html#restoration" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Tubender -->
+                <div class="project-card" onclick="location.href='professional.html#tubender'">
+                    <div class="project-image">💰</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Tubender Financial Model</h3>
+                        <p class="project-desc">Built 5-year integrated 3-statement model with 84.67% gross margin, projecting $2.89M cash position by Year 5.</p>
+                        <div class="project-tags">
+                            <span class="tag">Financial Modeling</span>
+                            <span class="tag">3-Statement</span>
+                            <span class="tag">Forecasting</span>
+                        </div>
+                        <a href="professional.html#tubender" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Yelp -->
+                <div class="project-card" onclick="location.href='projects.html#yelp'">
+                    <div class="project-image">🎯</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Yelp Market Analysis</h3>
+                        <p class="project-desc">Identified $47B market opportunity in rural communities through predictive modeling and geospatial clustering across 150K businesses.</p>
+                        <div class="project-tags">
+                            <span class="tag">ML</span>
+                            <span class="tag">Geospatial</span>
+                            <span class="tag">Clustering</span>
+                        </div>
+                        <a href="projects.html#yelp" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- NLP -->
+                <div class="project-card" onclick="location.href='projects.html#nlp'">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Purchase Intent Prediction</h3>
+                        <p class="project-desc">95.4% AUC model using NLP and sentiment analysis on 10K+ product reviews for market research firm.</p>
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Sentiment</span>
+                            <span class="tag">Classification</span>
+                        </div>
+                        <a href="projects.html#nlp" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Boston Crime -->
+                <div class="project-card" onclick="location.href='projects.html'">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Boston Crime Dashboard</h3>
+                        <p class="project-desc">Interactive geospatial dashboard analyzing 320K+ crime records for law enforcement strategy optimization.</p>
+                        <div class="project-tags">
+                            <span class="tag">Geospatial</span>
+                            <span class="tag">Viz</span>
+                            <span class="tag">Team</span>
+                        </div>
+                        <a href="projects.html" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Interested in collaborating or learning more about my work?</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+            <p>&copy; 2026 Alva Ayitey-Adjin. Built with purpose.</p>
+        </div>
+    </footer>
+</body>
+</html>
